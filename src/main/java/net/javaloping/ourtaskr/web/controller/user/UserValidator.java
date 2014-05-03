@@ -14,5 +14,9 @@ public class UserValidator extends ObjectValidator<UserDTO>{
 
 	public void validate(UserDTO user) throws ValidationException{
 		super.validate(user);
+
+		if (!user.getPassword().equals(user.getConfirmedPassword())) {
+			throw new ValidationException("Passwords don't match");
+		}
 	}
 }

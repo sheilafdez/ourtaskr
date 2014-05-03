@@ -44,7 +44,7 @@ public class UserControllerTestCase {
 	}
 
 	@Test
-	public void testAddUSer() throws Exception {
+	public void testAddUSerOk() throws Exception {
 		String name = "Perico";
 		String surname = "Palotes";
 		String email = "victormirandabeltran@gmail.com";
@@ -63,4 +63,5 @@ public class UserControllerTestCase {
 				.andExpect(jsonPath("$.surname", is(surname)))
 				.andDo(print());
 	}
+
 }

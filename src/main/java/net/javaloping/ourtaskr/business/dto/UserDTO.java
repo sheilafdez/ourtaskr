@@ -1,5 +1,6 @@
 package net.javaloping.ourtaskr.business.dto;
 
+import net.javaloping.ourtaskr.util.annotations.EMail;
 import net.javaloping.ourtaskr.util.annotations.NotNull;
 
 import java.util.Date;
@@ -16,8 +17,13 @@ public class UserDTO {
 
 	private String surname;
 
+	@NotNull
 	private String password;
 
+	private String confirmedPassword;
+
+	@NotNull
+	@EMail
 	private String emailAddress;
 
 	private Date createDate;
@@ -58,6 +64,14 @@ public class UserDTO {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getConfirmedPassword() {
+		return confirmedPassword;
+	}
+
+	public void setConfirmedPassword(String confirmedPassword) {
+		this.confirmedPassword = confirmedPassword;
 	}
 
 	public String getEmailAddress() {

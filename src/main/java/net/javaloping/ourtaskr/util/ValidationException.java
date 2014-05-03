@@ -1,5 +1,8 @@
 package net.javaloping.ourtaskr.util;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
 import java.lang.reflect.Field;
 
 /**
@@ -32,7 +35,8 @@ public class ValidationException extends Exception {
 	}
 
 	enum Type {
-		NULL_FIELD;
+		NULL_FIELD,
+		EMAIL;
 	}
 
 }
