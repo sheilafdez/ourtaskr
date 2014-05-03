@@ -1,5 +1,7 @@
 package net.javaloping.ourtaskr.business.dto;
 
+import net.javaloping.ourtaskr.util.annotations.NotNull;
+
 import java.util.Date;
 
 /**
@@ -9,6 +11,7 @@ public class UserDTO {
 
 	private Long userId;
 
+	@NotNull
 	private String name;
 
 	private String surname;
