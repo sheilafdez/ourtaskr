@@ -10,4 +10,5 @@ import sun.net.www.content.text.Generic;
  */
 public interface UserDao extends GenericDao<User> {
 
+	User getUserByEmail(String emailAddress);
 }

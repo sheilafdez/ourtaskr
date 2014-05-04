@@ -83,7 +83,7 @@ public class UserControllerTestCase {
 	}
 
 	@Test
-	public void testAddUserBadEmail() throws Exception {
+	public void testAddUserBadEmailKO() throws Exception {
 		String name = "pepe";
 		String surname = "Palotes";
 		String email = "victormirandabeltran";
@@ -96,9 +96,9 @@ public class UserControllerTestCase {
 				.param("password",password)
 				.param("confirmPassword",confirmationPassword)
 				.param("emailAddress",email))
-				.andExpect(status().isBadRequest())
-				.andExpect(jsonPath("$.field",is("emailAddress")))
-				.andExpect(jsonPath("$.type",is(Type.EMAIL.toString())));
+			.andExpect(status().isBadRequest())
+			.andExpect(jsonPath("$.field",is("emailAddress")))
+			.andExpect(jsonPath("$.type",is(Type.EMAIL.toString())));
 	}
 
 	@Test
@@ -115,9 +115,33 @@ public class UserControllerTestCase {
 				.param("password",password)
 				.param("confirmPassword",confirmationPassword)
 				.param("emailAddress",email))
-				.andExpect(status().isBadRequest())
-				.andExpect(jsonPath("$.field",is("confirmPassword")))
-				.andExpect(jsonPath("$.type",is(Type.FIELDS_DONT_MATCH.toString())));
+			.andExpect(status().isBadRequest())
+			.andExpect(jsonPath("$.field",is("confirmPassword")))
+			.andExpect(jsonPath("$.type",is(Type.FIELDS_DONT_MATCH.toString())));
+	}
+
+	/**
+	 * See import.sql - paco@gmail.com has been used before
+	 * @throws Exception
+	 */
+	@Test
+	public void testAddUserDuplicatedEmailKO() throws Exception {
+		String name = "Perico";
+		String surname = "Palotes";
+		String email = "paco@gmail.com";
+		String password = "paco";
+		String confirmationPassword = "paco";
+
+		mockMvc.perform(get("/user/add")
+				.param("name",name)
+				.param("surname",surname)
+				.param("password",password)
+				.param("confirmPassword",confirmationPassword)
+				.param("emailAddress",email)
+				.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isBadRequest())
+			.andExpect(jsonPath("$.field",is("emailAddress")))
+			.andExpect(jsonPath("$.type",is(Type.EMAIL.toString())));
 	}
 
 }

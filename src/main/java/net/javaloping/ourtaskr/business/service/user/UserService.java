@@ -16,4 +16,6 @@ public interface UserService {
 	UserDTO addUser(UserDTO u);
 
 	UserDTO getUser(Long userId);
+
+	UserDTO getUserByEmail(String emailAddress);
 }

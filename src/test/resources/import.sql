@@ -1,4 +1,4 @@
-INSERT INTO User(userId,emailAddress, failedLoginsAttemps, name, password, surname)  VALUES  (1,'victormiranda',1,'victor','paco','miranda'),(2,'pacopaco',1,'paco','paco','miranda'),(3,'sheila',1,'sheila','paco','miranda');
+INSERT INTO User(userId,emailAddress, failedLoginsAttemps, name, password, surname)  VALUES  (1,'paco@gmail.com',1,'victor','paco','miranda'),(2,'pacopaco',1,'paco','paco','miranda'),(3,'sheila',1,'sheila','paco','miranda');
 
 INSERT INTO UserPreferences(userPreferenceId,userId, muteNotifications) VALUES (1,1,false),  (2,2,false);
 

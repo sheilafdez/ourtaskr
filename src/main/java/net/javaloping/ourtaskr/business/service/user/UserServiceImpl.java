@@ -47,4 +47,20 @@ public class UserServiceImpl implements UserService {
 		return userDTO;
 	}
 
+	@Override
+	public UserDTO getUserByEmail(String emailAddress) {
+
+		User user = userDao.getUserByEmail(emailAddress);
+
+		if (user == null) {
+			return null;
+		}
+
+		UserDTO userDTO = new UserDTO();
+
+		dozerMapper.map(user, userDTO);
+
+		return userDTO;
+	}
+
 }
