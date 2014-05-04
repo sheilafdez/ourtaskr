@@ -1,4 +1,4 @@
-package net.javaloping.ourtaskr.util;
+package net.javaloping.ourtaskr.util.validation;
 
 import net.javaloping.ourtaskr.util.annotations.EMail;
 import net.javaloping.ourtaskr.util.annotations.NotNull;
@@ -25,20 +25,20 @@ public abstract class ObjectValidator<T> {
 				field.setAccessible(true);
 				Object fieldValue = field.get(o);
 
-				if (a.equals(NotNull.class) &&
+				if (a instanceof NotNull &&
 						Validator.isNull(fieldValue)) {
 					throw new ValidationException(
 						field, ValidationException.Type.NULL_FIELD);
 				}
-				if (a.equals(EMail.class) &&
-						Validator.isMail((String)fieldValue)) {
+				if (a instanceof EMail &&
+						!Validator.isMail((String)fieldValue)) {
 					throw new ValidationException(
 						field, ValidationException.Type.EMAIL);
-
 				}
 			}
 			catch (IllegalAccessException e) {
-				throw new ValidationException("Error in validator",e);
+				throw new ValidationException(field,
+					ValidationException.Type.FIELDS_DONT_MATCH);
 			}
 		}
 	}

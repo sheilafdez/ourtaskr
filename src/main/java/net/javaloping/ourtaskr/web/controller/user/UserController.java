@@ -1,25 +1,21 @@
 package net.javaloping.ourtaskr.web.controller.user;
 
 import net.javaloping.ourtaskr.business.dto.UserDTO;
-import net.javaloping.ourtaskr.business.model.User;
 import net.javaloping.ourtaskr.business.service.user.UserService;
-import net.javaloping.ourtaskr.util.ValidationException;
-import net.javaloping.ourtaskr.util.Validator;
+import net.javaloping.ourtaskr.util.validation.ValidationException;
+import net.javaloping.ourtaskr.web.controller.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import sun.security.validator.ValidatorException;
 
 /**
  * @author victormiranda
  */
 @Controller
-public class UserController {
+public class UserController extends BaseController {
 
 	@Autowired
 	private UserService userService;
@@ -56,4 +52,5 @@ public class UserController {
 
 		return u;
 	}
+
 }

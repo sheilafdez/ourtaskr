@@ -1,4 +1,6 @@
-package net.javaloping.ourtaskr.util;
+package net.javaloping.ourtaskr.util.validation;
+
+import net.javaloping.ourtaskr.util.StringConstants;
 
 import java.io.Serializable;
 import java.util.regex.Pattern;
